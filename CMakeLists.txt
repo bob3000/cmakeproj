@@ -18,6 +18,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 
   add_subdirectory(src)
   add_subdirectory(apps)
+  add_subdirectory(vendor)
 
   if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR OVERRIDE_BUILD_TESTING)
     AND BUILD_TESTING)

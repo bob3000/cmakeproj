@@ -17,6 +17,13 @@ target_compile_options(lib
     $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/O2 /DNDEBUG /W3>
 )
 
+target_link_libraries(lib PRIVATE
+  SDL3_ttf::SDL3_ttf
+  SDL3_mixer::SDL3_mixer
+  SDL3_image::SDL3_image
+  SDL3::SDL3
+)
+
 source_group(
   TREE "${PROJECT_SOURCE_DIR}/include"
   PREFIX "Header Files"
