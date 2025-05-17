@@ -1,9 +1,5 @@
 .PHONY: clean release debug test docs run
 
-clean:
-	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
-	cmake --build build --clean
-
 release:
 	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
 	cmake --build build
@@ -16,6 +12,10 @@ run:
 	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
 	cmake --build build
 	build/apps/app
+
+clean:
+	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
+	cmake --build build --target clean
 
 test:
 	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug

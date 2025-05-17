@@ -6,8 +6,15 @@ target_include_directories(lib PUBLIC ../include)
 target_compile_features(lib PUBLIC cxx_std_17)
 target_compile_options(lib
   PRIVATE
-    $<$<CONFIG:Debug>:-g -O0 -Wall -Wextra -Werror>
-    $<$<CONFIG:Release>:-O3 -Wall -Wextra -Werror>
+    # GCC/Clang
+    $<$<AND:$<NOT:$<CXX_COMPILER_ID:MSVC>>,$<CONFIG:Debug>>:
+      -Wall -Wextra -g -O0 -Werror>
+    $<$<AND:$<NOT:$<CXX_COMPILER_ID:MSVC>>,$<CONFIG:Release>>:
+      -O3 -DNDEBUG -Werror>
+
+    # MSVC
+    $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Debug>>:/W4 /Zi /Od>
+    $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/O2 /DNDEBUG /W3>
 )
 
 source_group(
