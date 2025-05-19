@@ -44,8 +44,8 @@ set(SDLIMAGE_BMP OFF)
 set(SDLIMAGE_JPEG OFF)
 set(SDLIMAGE_WEBP OFF)
 
-target_link_libraries(app PRIVATE
-  lib
+target_link_libraries("${EXECUTABLE_NAME}" PRIVATE
+  "${LIB_NAME}"
   SDL3_ttf::SDL3_ttf
   SDL3_mixer::SDL3_mixer
   SDL3_image::SDL3_image
