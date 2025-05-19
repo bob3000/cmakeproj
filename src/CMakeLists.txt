@@ -1,10 +1,10 @@
 file(GLOB HEADER_LIST CONFIGURE_DEPENDS
     "${SOURCE_DIR}/include/project/lib/*.hpp")
 
-add_library(lib lib.cpp ${HEADER_LIST})
-target_include_directories(lib PUBLIC ../include)
-target_compile_features(lib PUBLIC cxx_std_17)
-target_compile_options(lib
+add_library("${LIB_NAME}" lib.cpp ${HEADER_LIST})
+target_include_directories("${LIB_NAME}" PUBLIC ../include)
+target_compile_features("${LIB_NAME}" PUBLIC cxx_std_17)
+target_compile_options("${LIB_NAME}"
   PRIVATE
     # GCC/Clang
     $<$<AND:$<NOT:$<CXX_COMPILER_ID:MSVC>>,$<CONFIG:Debug>>:

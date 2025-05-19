@@ -11,7 +11,7 @@ debug:
 run:
 	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
 	cmake --build build
-	build/apps/app
+	cmake --build build --target run
 
 clean:
 	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
