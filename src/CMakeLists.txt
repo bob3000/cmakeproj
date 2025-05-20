@@ -8,9 +8,11 @@ target_compile_options("${LIB_NAME}"
   PRIVATE
     # GCC/Clang
     $<$<AND:$<NOT:$<CXX_COMPILER_ID:MSVC>>,$<CONFIG:Debug>>:
-      -Wall -Wextra -g -O0 -Werror>
+      "${COMPILE_GCC_OPTS_DEBUG}"
+      >
     $<$<AND:$<NOT:$<CXX_COMPILER_ID:MSVC>>,$<CONFIG:Release>>:
-      -O3 -DNDEBUG -Werror>
+      "${COMPILE_GCC_OPTS_RELEASE}"
+      >
 
     # MSVC
     $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Debug>>:/W4 /Zi /Od>

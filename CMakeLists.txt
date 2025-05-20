@@ -10,6 +10,20 @@ set(LIB_NAME "lib")
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   set(CMAKE_CXX_EXTENSIONS OFF)
+  set(COMPILE_GCC_OPTS_DEBUG
+    -O0 -g3 -ggdb3 -fno-strict-aliasing -fstack-protector-strong
+    -DDEBUG -fno-omit-frame-pointer
+    -Wstrict-aliasing=2 -Wall -Wextra -Werror -Wpedantic
+    -Wwrite-strings -Wconversion -Wmissing-declarations
+    -Wmissing-include-dirs -Wfloat-equal -Wsign-compare -Wundef
+    -Wcast-align -Wswitch-default -Wimplicit-fallthrough
+    -Wempty-body -Wuninitialized -Wmisleading-indentation
+    -Wshadow -Wmissing-prototypes -Wstrict-prototypes
+    -Wold-style-definition
+  )
+  set(COMPILE_GCC_OPTS_RELEASE
+    -O3 -march=native -flto=auto -fno-plt -fomit-frame-pointer
+  )
   set_property(GLOBAL PROPERTY USE_FOLDERS ON)
   include(CTest)
   find_package(Doxygen)
@@ -28,5 +42,4 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     AND BUILD_TESTING)
     add_subdirectory(tests)
   endif()
-
 endif()
