@@ -30,7 +30,7 @@ FetchContent_MakeAvailable(sdl3_mixer)
 set(SDLTTF_VENDORED ON) # tell SDL_ttf to build its own dependencies
 
 # SDL_mixer (used for playing audio)
-set(SDLMIXER_MIDI_NATIVE OFF)     # disable formats we don't use to make the build faster and smaller. Also some of these don't work on all platforms so you'll need to do some experimentation.
+set(SDLMIXER_MIDI_NATIVE OFF)
 set(SDLMIXER_GME OFF)
 set(SDLMIXER_WAVPACK OFF)
 set(SDLMIXER_MOD OFF)
@@ -39,7 +39,7 @@ set(SDLMIXER_VENDORED ON)   # tell SDL_mixer to build its own dependencies
 
 # SDL_image (used for loading various image formats)
 set(SDLIMAGE_VENDORED ON)
-set(SDLIMAGE_AVIF OFF)	# disable formats we don't use to make the build faster and smaller.
+set(SDLIMAGE_AVIF OFF)
 set(SDLIMAGE_BMP OFF)
 set(SDLIMAGE_JPEG OFF)
 set(SDLIMAGE_WEBP OFF)

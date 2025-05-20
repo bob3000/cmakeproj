@@ -1,26 +1,23 @@
 .PHONY: clean release debug test docs run
 
+build/CMakeCache.txt:
+	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+
 release:
 	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
 	cmake --build build
 
-debug:
-	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+debug: build/CMakeCache.txt
 	cmake --build build
 
-run:
-	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
-	cmake --build build
+run: debug
 	cmake --build build --target run
 
 clean:
-	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
 	cmake --build build --target clean
 
-test:
-	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+test: debug
 	cmake --build build --target test
 
-docs:
-	cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+docs: debug
 	cmake --build build --target docs
