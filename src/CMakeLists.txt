@@ -17,12 +17,7 @@ target_compile_options("${LIB_NAME}"
     $<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:Release>>:/O2 /DNDEBUG /W3>
 )
 
-target_link_libraries(lib PRIVATE
-  SDL3_ttf::SDL3_ttf
-  SDL3_mixer::SDL3_mixer
-  SDL3_image::SDL3_image
-  SDL3::SDL3
-)
+target_link_libraries(lib PRIVATE)
 
 source_group(
   TREE "${PROJECT_SOURCE_DIR}/include"
