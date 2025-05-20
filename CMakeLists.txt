@@ -22,7 +22,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     -Wold-style-definition
   )
   set(COMPILE_GCC_OPTS_RELEASE
-    -O3 -DNDEBUG -Werror
+    -O3 -DNDEBUG -fomit-frame-pointer
   )
   set_property(GLOBAL PROPERTY USE_FOLDERS ON)
   include(CTest)
