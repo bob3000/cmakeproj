@@ -3,5 +3,5 @@
 #include <project/lib.hpp>
 
 TEST_CASE("Test hello", "[hello]") {
-  REQUIRE(hello() == 0);
+  REQUIRE(init() == 0);
 }

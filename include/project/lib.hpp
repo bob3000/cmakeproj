@@ -1,2 +1,2 @@
 #include <iostream>
-int hello();
+int init();
